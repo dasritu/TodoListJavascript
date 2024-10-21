@@ -13,21 +13,19 @@ body {
   color: #333;
 }
 
-/* Main Layout */
 .main-class {
   display: flex;
-  flex-wrap: wrap; /* Enable wrapping on smaller screens */
   height: 100vh;
   align-items: flex-start;
   justify-content: space-between;
   padding: 20px;
-  gap: 20px;
+  gap: 10px;
+  flex-wrap: wrap; /* Ensure content wraps on smaller screens */
 }
 
 /* Todo Section */
 .todo-part {
-  flex: 1 1 70%; /* 70% width on large screens */
-  min-width: 300px; /* Prevents shrinking too much on small screens */
+  width: 75%; /* Adjusted to leave space for history */
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -56,7 +54,6 @@ textarea {
   border-radius: 8px;
   font-size: 16px;
   outline: none;
-  width: 100%;
 }
 
 textarea {
@@ -93,7 +90,7 @@ textarea {
 }
 
 .history-button {
-  padding: 5px;
+  padding: 5px 5px;
   background-color: red;
   color: white;
   border: none;
@@ -128,8 +125,7 @@ textarea {
 }
 
 .todocard {
-  width: 100%;
-  max-width: 250px;
+  width: 250px;
   padding: 15px;
   background-color: white;
   border-radius: 10px;
@@ -182,8 +178,7 @@ textarea {
 
 /* History Section */
 .history {
-  flex: 1 1 25%;
-  min-width: 250px;
+  width: 20%; /* Adjust for larger screens */
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -192,7 +187,6 @@ textarea {
   max-height: 80vh;
 }
 
-/* Ensures the history section stays below on small screens */
 .history h2 {
   margin-bottom: 15px;
 }
@@ -217,40 +211,45 @@ textarea {
   border-radius: 10px;
 }
 
-/* Responsive Design - Media Queries */
-@media (max-width: 760px) {
+/* Responsive Styling */
+@media (max-width: 768px) {
   .main-class {
-    flex-direction: column; /* Stack vertically */
-    align-items: stretch;
-    height: auto; /* Remove fixed height to allow content to grow */
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Ensure it fits mobile screens */
   }
 
   .todo-part {
-    width: 100%; /* Full width on small screens */
-    margin-bottom: 20px;
+    width: 100%; /* Take full width on mobile */
   }
 
   .history {
-    width: 100%; /* Full width on small screens */
-    margin-top: 10px;
+    width: 100%; /* Take full width on mobile */
+    margin-top: 20px;
   }
-}
 
-@media (max-width: 480px) {
-  .buttons {
-    font-size: 14px;
-    padding: 8px;
+  .card-div {
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .todocard {
+    width: 100%; /* Expand cards to fit screen width */
   }
 
   .editbutton,
   .deletebutton {
-    padding: 6px;
-    font-size: 14px;
+    width: 48%; /* Maintain button widths */
+  }
+}
+
+@media (max-width: 480px) {
+  .buttons,
+  .restoreButton {
+    width: 100%; /* Full-width buttons for small screens */
   }
 
-  .restoreButton {
-    font-size: 14px;
-    height: auto;
-    padding: 6px;
+  .buttondiv {
+   
+    gap: 10px; /* Adjust button layout for smaller screens */
   }
 }
