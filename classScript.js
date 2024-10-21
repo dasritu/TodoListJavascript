@@ -104,7 +104,7 @@ class TodoManager {
     const hasTodo = this.todos.some((todo) => todo.visibility === "Y");
     const todoHead = document.createElement("h2");
     todoHead.innerHTML = hasTodo
-      ? `<h1>Todo List</h1>`
+      ? `<h2>Todo List</h2>`
       : `<h2>No todos to show</h2>`;
     todoDisplay.appendChild(todoHead);
 
