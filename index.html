@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo list</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/clockpicker/dist/jquery-clockpicker.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clockpicker/dist/jquery-clockpicker.min.js"></script>
+  </head>
+  <body>
+    <div class="main-class">
+      <div class="todo-part">
+        <h1 style="text-align: center">Todo List</h1>
+        <div class="todo">
+          <label for=""><strong>Title :</strong> </label
+          ><input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Enter Title Here"
+          /><br />
+          <label><strong>Description :</strong> </label
+          ><textarea
+            name="description"
+            id="description"
+            placeholder="Enter Descriptiom"
+          ></textarea
+          ><br />
+
+          <label><strong>Date :</strong> </label
+          ><input type="date" name="data" id="date" />
+
+          <script>
+            const today = new Date().toISOString().split("T")[0];
+            document.getElementById("date").setAttribute("min", today);
+          </script>
+
+          <lable><strong>Time to Do: </strong></lable
+          ><input type="text" name="time" id="time" />
+          <script>
+            $(document).ready(function () {
+              $('#time').clockpicker({
+                autoclose: true,
+                twelvehour: true, 
+                donetext: 'Done'
+              });
+            });
+          </script>
+          <button
+            id="button"
+            class="buttons"
+            onclick="todoManager.addOrUpdate()"
+          >
+            Add Todo
+          </button>
+        </div>
+        <div class="search">
+          <label for=""><strong>Search By Name : </strong></label
+          ><input
+            type="text"
+            name=""
+            id="search-text"
+            placeholder="Enter Name for search"
+          /><br />
+          <label for=""><strong>Search By date : </strong> </label
+          ><input type="date" name="" id="search-date" /><br />
+          <button onclick="searchItem()" class="buttons">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="todolist" id="display"></div>
+      </div>
+
+      <div class="history" id="history"></div>
+    </div>
+    <script src="classScript.js"></script>
+  </body>
+</html>
